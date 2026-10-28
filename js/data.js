@@ -1,20 +1,15 @@
+const galleryDataScript = document.querySelector('script[src$="js/data.js"]');
+const galleryAssetsBase = new URL("../assets/img/", galleryDataScript?.src || document.baseURI);
+
 window.SAMA_GALLERY = {
   images: [
     {
-      src: "../assets/img/WhatsApp Image 2026-10-25 at 6.02.59 PM.jpeg",
-      title: "من أعمال المؤسسة",
+      src: new URL("WhatsApp Image 2026-10-25 at 6.02.59 PM (2).jpeg", galleryAssetsBase).href,
+      title: "تنظيف فيلا",
     },
     {
-      src: "../assets/img/WhatsApp Image 2026-10-25 at 6.02.59 PM (1).jpeg",
-      title: "من أعمال المؤسسة",
-    },
-    {
-      src: "../assets/img/WhatsApp Image 2026-10-25 at 6.02.59 PM (2).jpeg",
-      title: "من أعمال المؤسسة",
-    },
-    {
-      src: "../assets/img/WhatsApp Image 2026-10-25 at 6.02.59 PM (3).jpeg",
-      title: "من أعمال المؤسسة",
+      src: new URL("WhatsApp Image 2026-10-25 at 6.02.59 PM (3).jpeg", galleryAssetsBase).href,
+      title: "تنظيف كنبة",
     },
   ],
   videos: [
@@ -38,7 +33,72 @@ window.SAMA_GALLERY = {
     "WhatsApp Video 2026-10-25 at 6.03.01 PM (4).mp4",
     "WhatsApp Video 2026-10-25 at 6.03.01 PM (5).mp4",
   ].map((src) => ({
-    src: `../assets/img/${src}`,
-    title: "مقطع من أعمال المؤسسة",
+    src: new URL(src, galleryAssetsBase).href,
+    title: "فيديو من خدمات التنظيف",
   })),
 };
+
+window.SAMA_TESTIMONIALS = [
+  {
+    name: "البندري",
+    initial: "ب",
+    rating: 5,
+    text: "مبدعين ما شاء الله عليهم، الله يبارك لهم ويرزقهم. شغلهم محترم ومتعاونين وخدماتهم مرة روعة. جربنا عندهم إصلاح المكيفات والنظافة وكانوا جداً روعة.",
+  },
+  {
+    name: "سمي",
+    initial: "س",
+    rating: 5,
+    text: "شغلهم بطل الله يوفقهم.",
+  },
+  {
+    name: "نوره محمد",
+    initial: "ن",
+    rating: 5,
+    text: "من أفضل من تعاملنا معهم في النظافة، دقة وسرعة إنجاز. شكراً لكم.",
+  },
+  {
+    name: "Reem Otaibi",
+    initial: "R",
+    rating: 5,
+    text: "طلبتهم للبيت عندي ينظفون السجاد والكنب. ما شاء الله شغلهم ممتاز وأسعارهم مناسبة.",
+  },
+  {
+    name: "سارة الحربي",
+    initial: "س",
+    rating: 5,
+    text: "ما شاء الله شغل جميل ومحترمين، وغير كذا أسعارهم جداً معقولة.",
+  },
+  {
+    name: "Saleh N",
+    initial: "S",
+    rating: 1,
+    text: "شغل غير احترافي.",
+    response:
+      "أخ صالح، تم تنفيذ الخدمة بناءً على طلبك ورغبتك وحرصنا على رضاك. نقدر لك رأيك.",
+  },
+  {
+    name: "ابراهيم سليمان",
+    initial: "إ",
+    rating: 5,
+    text: "ما شاء الله خدمة ممتازة وما قصّروا، الله يجزاهم خير.",
+  },
+  {
+    name: "Almaha",
+    initial: "A",
+    rating: 5,
+    text: "شغل ممتاز.",
+  },
+  {
+    name: "Al",
+    initial: "A",
+    rating: 5,
+    text: "ما شاء الله تعامل راقي وجميل، وشغل ممتاز وفوق التقييم. الله يوفقهم ويرزقهم.",
+  },
+  {
+    name: "شيمه العتيبي",
+    initial: "ش",
+    rating: 5,
+    text: "ما شاء الله من أفضل شركات التنظيف، شغلهم ممتاز.",
+  },
+];

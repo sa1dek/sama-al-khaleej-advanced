@@ -7,8 +7,11 @@
   const systemDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
   root.dataset.theme = saved === 'dark' || saved === 'light' ? saved : (systemDark ? 'dark' : 'light');
   const update = () => {
-    if (!toggle) return;
     const dark = root.dataset.theme === 'dark';
+    document.querySelectorAll('[data-logo-light][data-logo-dark]').forEach((logo) => {
+      logo.src = dark ? logo.dataset.logoDark : logo.dataset.logoLight;
+    });
+    if (!toggle) return;
     toggle.setAttribute('aria-label', dark ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع الداكن');
     toggle.setAttribute('title', dark ? 'الوضع الفاتح' : 'الوضع الداكن');
     toggle.querySelector('.theme-dark')?.classList.toggle('sr-only', dark);

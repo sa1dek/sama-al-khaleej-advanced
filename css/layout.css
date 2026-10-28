@@ -28,7 +28,7 @@
   width: 44px;
   height: 44px;
   border-radius: 15px;
-  background: var(--blue);
+  background: var(--accent);
   color: white;
   display: grid;
   place-items: center;
@@ -50,7 +50,7 @@
 }
 .nav-links a:not(.btn):hover,
 .nav-links a[aria-current="page"] {
-  color: var(--blue);
+  color: var(--accent-strong);
 }
 .nav-actions {
   display: flex;
@@ -61,66 +61,31 @@
   display: none;
 }
 .hero {
-  padding: 62px 0 70px;
+  padding: 92px 0 86px;
+  background: radial-gradient(ellipse at 8% 10%, var(--accent-soft), transparent 56%);
 }
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1.02fr 0.98fr;
-  gap: 54px;
-  align-items: center;
+  display: block;
 }
 .hero-copy {
+  max-width: 850px;
+  margin-inline: auto;
   padding-block: 20px;
+  text-align: center;
 }
 .hero-copy .lead {
+  margin-inline: auto;
   margin-bottom: 28px;
 }
 .hero-actions {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
 }
-.hero-art {
-  min-height: 490px;
-  border-radius: 34px;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(145deg, #e3effb, #c9ddf3 53%, #a8c9e9);
-}
-.hero-art:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, transparent 48%, rgba(18, 46, 80, 0.4)),
-    radial-gradient(
-      circle at 72% 18%,
-      rgba(255, 255, 255, 0.9),
-      transparent 38%
-    );
-}
-.home-illustration {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-.hero-note {
-  position: absolute;
-  bottom: 22px;
-  right: 22px;
-  left: 22px;
-  padding: 16px 18px;
-  border-radius: 18px;
-  color: #fff;
-}
-.hero-note p {
-  margin: 3px 0 0;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
-}
 .trust-row {
   display: flex;
+  justify-content: center;
   gap: 22px;
   flex-wrap: wrap;
   margin-top: 32px;
@@ -134,7 +99,7 @@
   font-size: 0.92rem;
 }
 .trust-item i {
-  color: var(--blue);
+  color: var(--accent-strong);
 }
 .split {
   display: grid;
@@ -172,7 +137,7 @@
   padding: 76px 0 45px;
   background: radial-gradient(
     ellipse at 10% 0%,
-    var(--blue-soft),
+    var(--accent-soft),
     transparent 45%
   );
 }
@@ -238,10 +203,10 @@
 .placeholder-art {
   height: 210px;
   border-radius: 14px;
-  background: linear-gradient(135deg, var(--blue-soft), var(--sand));
+  background: linear-gradient(135deg, var(--accent-soft), var(--sand));
   display: grid;
   place-items: center;
-  color: var(--blue);
+  color: var(--accent-strong);
   font-size: 2rem;
   position: relative;
 }
@@ -273,12 +238,6 @@
   height: min(65vh, 600px);
   object-fit: contain;
   border-radius: 20px;
-}
-.lightbox-controls {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 14px;
 }
 .lightbox button {
   background: #ffffff18;

@@ -39,11 +39,11 @@ button {
   color: inherit;
 }
 ::selection {
-  background: var(--blue);
+  background: var(--accent);
   color: #fff;
 }
 :focus-visible {
-  outline: 3px solid #66aef0;
+  outline: 3px solid var(--accent-strong);
   outline-offset: 3px;
 }
 .container {
@@ -61,7 +61,7 @@ button {
   display: inline-flex;
   gap: 9px;
   align-items: center;
-  color: var(--blue);
+  color: var(--accent-strong);
   font-size: 0.86rem;
   font-weight: 800;
   letter-spacing: 0.02em;

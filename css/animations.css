@@ -3,9 +3,6 @@
   -webkit-touch-callout: none;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .hero-art {
-    animation: arrive 0.8s ease both;
-  }
   .hero-copy > * {
     animation: arrive 0.55s ease both;
   }

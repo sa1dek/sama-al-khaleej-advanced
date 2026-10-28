@@ -9,9 +9,6 @@
   .hero-grid {
     gap: 30px;
   }
-  .hero-art {
-    min-height: 420px;
-  }
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -68,10 +65,6 @@
   .hero-copy {
     padding: 0;
   }
-  .hero-art {
-    min-height: 370px;
-    order: -1;
-  }
   .trust-row {
     gap: 13px;
   }
@@ -125,9 +118,6 @@
   .gallery-grid {
     grid-template-columns: 1fr;
   }
-  .hero-art {
-    min-height: 310px;
-  }
   .brand {
     font-size: 0.9rem;
   }
@@ -173,12 +163,6 @@ dialog.lightbox[open] {
 }
 dialog.lightbox::backdrop {
   background: rgba(0, 0, 0, 0.86);
-}
-.gallery-caption {
-  display: block;
-  padding: 12px 3px;
-  font-weight: 700;
-  text-align: right;
 }
 @media (max-width: 980px) {
   .site-header .nav-toggle {
@@ -227,11 +211,8 @@ dialog.lightbox::backdrop {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .home-gallery-grid img {
-    height: 190px;
-  }
   .gallery-media {
-    height: 190px;
+    height: clamp(240px, 48vw, 320px);
   }
   .action-bar {
     gap: 8px;
@@ -243,9 +224,6 @@ dialog.lightbox::backdrop {
   }
   .page-hero h1 {
     font-size: clamp(2rem, 9vw, 3rem);
-  }
-  .hero-art {
-    background: linear-gradient(145deg, #e3effb, #c9ddf3 53%, #a8c9e9);
   }
   body {
     padding-bottom: 68px;
@@ -264,12 +242,8 @@ dialog.lightbox::backdrop {
   .stats-item {
     padding: 18px 10px;
   }
-  .home-gallery-grid img,
   .gallery-media {
-    height: 220px;
-  }
-  .hero-art {
-    min-height: 300px;
+    height: clamp(260px, 78vw, 390px);
   }
   .cta-band {
     padding: 32px 22px;

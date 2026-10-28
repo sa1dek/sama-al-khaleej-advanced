@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl" data-theme="light">
   <head>
     <meta charset="utf-8" />
-    <meta name="description" content="أرسل طلب تنظيف أو صيانة منزلية في الرس والقصيم عبر نموذج الحجز، وسنراجع تفاصيل الخدمة والموقع والوقت المناسب معك عبر واتساب." />
+    <meta name="description" content="أرسل طلب تنظيف أو صيانة منزلية في بريدة ومدن القصيم عبر نموذج الحجز، وافتح رسالة واتساب جاهزة ببيانات الخدمة والموقع والوقت المناسب." />
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta name="author" content="مؤسسة سما الخليج المتقدمة" />
     <meta name="application-name" content="Sama Al Khaleej Advanced" />
@@ -10,10 +10,10 @@
     <meta property="og:site_name" content="مؤسسة سما الخليج المتقدمة" />
     <meta property="og:locale" content="ar_SA" />
     <meta property="og:title" content="حجز تنظيف وصيانة منزلية في القصيم | سما الخليج المتقدمة" />
-    <meta property="og:description" content="أرسل طلب تنظيف أو صيانة منزلية في الرس والقصيم عبر نموذج الحجز، وسنراجع تفاصيل الخدمة والموقع والوقت المناسب معك عبر واتساب." />
+    <meta property="og:description" content="أرسل طلب تنظيف أو صيانة منزلية في بريدة ومدن القصيم عبر نموذج الحجز، وافتح رسالة واتساب جاهزة ببيانات الخدمة والموقع والوقت المناسب." />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="حجز تنظيف وصيانة منزلية في القصيم | سما الخليج المتقدمة" />
-    <meta name="twitter:description" content="أرسل طلب تنظيف أو صيانة منزلية في الرس والقصيم عبر نموذج الحجز، وسنراجع تفاصيل الخدمة والموقع والوقت المناسب معك عبر واتساب." />
+    <meta name="twitter:description" content="أرسل طلب تنظيف أو صيانة منزلية في بريدة ومدن القصيم عبر نموذج الحجز، وافتح رسالة واتساب جاهزة ببيانات الخدمة والموقع والوقت المناسب." />
     <title>حجز تنظيف وصيانة منزلية في القصيم | سما الخليج المتقدمة</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../css/variables.css" />
@@ -34,29 +34,13 @@
           document.documentElement.dataset.theme = "dark";
       } catch (e) {}
     </script>
-  
-  
   </head>
   <body>
     <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="../index.html"
-          ><span class="brand-mark"
-            ><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></span
-          ><span>سما الخليج المتقدمة<small>للخدمات المنزلية</small></span></a
-        >
-        <nav
-          class="nav-links"
-          id="main-menu"
-          data-nav-menu
-          aria-label="القائمة الرئيسية"
-        >
-          <a href="../index.html">الرئيسية</a><a href="services.html">خدماتنا</a
-          ><a href="about.html">من نحن</a><a href="gallery.html">معرض الأعمال</a
-          ><a href="testimonials.html">آراء العملاء</a
-          ><a href="contact.html">تواصل معنا</a>
-        </nav>
+        <a class="brand" href="../index.html" aria-label="شعار مؤسسة سما الخليج المتقدمة"><img class="brand-logo" src="../assets/logo.png" data-logo-light="../assets/logo.png" data-logo-dark="../assets/logo-light.png" alt="شعار سما الخليج المتقدمة" /></a>
+        <nav class="nav-links" id="main-menu" data-nav-menu aria-label="القائمة الرئيسية"><a href="../index.html">الرئيسية</a><a href="gallery.html">معرض الأعمال</a><a href="services.html">خدماتنا</a><a href="about.html">من نحن</a><a href="testimonials.html">آراء العملاء</a><a href="contact.html">تواصل معنا</a></nav>
         <div class="nav-actions">
           <button
             class="icon-btn"
@@ -94,8 +78,7 @@
           <span class="eyebrow">طلبك يبدأ من هنا</span>
           <h1>احجز خدمتك المنزلية</h1>
           <p class="lead">
-            أدخل بياناتك وتفاصيل الخدمة. سنراجع الطلب ونتواصل معك لتأكيد
-            التفاصيل والموعد.
+            أدخل بياناتك واضغط إرسال لفتح واتساب برسالة طلبك الجاهزة.
           </p>
         </div>
       </section>
@@ -178,7 +161,7 @@
                     id="city"
                     name="city"
                     autocomplete="address-level2"
-                    placeholder="مثال: الرس"
+                    placeholder="مثال: بريدة أو عنيزة"
                     required
                     aria-describedby="city-error"
                   /><span
@@ -216,6 +199,8 @@
                     id="date"
                     name="date"
                     type="date"
+                    lang="en"
+                    dir="ltr"
                     required
                     aria-describedby="date-error"
                   /><span
@@ -244,6 +229,30 @@
                     aria-live="polite"
                   ></span>
                 </div>
+                <div class="form-field">
+                  <label for="floor-count">عدد الأدوار</label>
+                  <input id="floor-count" name="floorCount" type="number" min="1" inputmode="numeric" placeholder="مثال: 2" />
+                </div>
+                <div class="form-field">
+                  <label for="room-count">عدد الغرف</label>
+                  <input id="room-count" name="roomCount" type="number" min="1" inputmode="numeric" placeholder="مثال: 4" />
+                </div>
+                <div class="form-field">
+                  <label for="bathroom-count">عدد دورات المياه</label>
+                  <input id="bathroom-count" name="bathroomCount" type="number" min="0" inputmode="numeric" placeholder="مثال: 2" />
+                </div>
+                <div class="form-field">
+                  <label for="sofa-seats">عدد مقاعد الكنب</label>
+                  <input id="sofa-seats" name="sofaSeats" type="number" min="0" inputmode="numeric" placeholder="مثال: 7" />
+                </div>
+                <div class="form-field">
+                  <label for="carpet-count">عدد قطع السجاد أو الموكيت</label>
+                  <input id="carpet-count" name="carpetCount" type="number" min="0" inputmode="numeric" placeholder="مثال: 3" />
+                </div>
+                <div class="form-field">
+                  <label for="area-size">المساحة التقريبية بالمتر المربع</label>
+                  <input id="area-size" name="areaSize" type="number" min="1" inputmode="numeric" placeholder="مثال: 180" />
+                </div>
                 <div class="form-field full">
                   <label for="notes">تفاصيل إضافية</label
                   ><textarea
@@ -254,46 +263,11 @@
                 </div>
               </div>
               <button class="btn" type="submit" style="margin-top: 22px">
-                مراجعة الطلب
+                أرسل الطلب عبر واتساب
                 <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
               </button>
             </form>
-            <section
-              id="review"
-              class="notice"
-              hidden
-              style="margin-top: 22px"
-              aria-labelledby="review-title"
-            >
-              <h2 id="review-title" style="font-size: 1.45rem">
-                راجع بيانات طلبك
-              </h2>
-              <dl id="review-details"></dl>
-              <label
-                style="
-                  display: flex;
-                  gap: 10px;
-                  align-items: flex-start;
-                  margin: 17px 0;
-                "
-                ><input
-                  id="confirm-details"
-                  type="checkbox"
-                  style="margin-top: 7px"
-                /><span
-                  >أؤكد صحة البيانات، وأعلم أن الطلب غير مؤكد حتى تتواصل معي
-                  المؤسسة.</span
-                ></label
-              ><button class="btn" id="send-request" type="button">
-                متابعة إلى واتساب
-              </button>
-              <p
-                id="booking-status"
-                role="status"
-                aria-live="polite"
-                style="margin: 14px 0 0"
-              ></p>
-            </section>
+            <p id="booking-status" role="status" aria-live="polite" style="margin: 14px 0 0"></p>
           </div>
           <aside>
             <div class="card">
@@ -302,17 +276,17 @@
               ></span>
               <h2 style="font-size: 1.65rem">ماذا يحدث بعد الطلب؟</h2>
               <p>
-                نراجع تفاصيل الخدمة وموقعك والوقت المفضل، ثم نتواصل معك لتأكيد
-                التفاصيل والموعد.
+                يفتح واتساب برسالة جاهزة ببيانات الطلب، ثم نتواصل معك لتأكيد
+                استلامه والاتفاق على الموعد.
               </p>
               <div class="notice">
-                <strong>تنبيه:</strong> إرسال الطلب لا يعني تأكيد الموعد. لا
-                يثبت الموعد إلا بعد تواصل المؤسسة معك.
+                <strong>بعد الإرسال:</strong> نرد عليك عبر واتساب لتأكيد التفاصيل
+                والموعد.
               </div>
             </div>
             <div class="notice" style="margin-top: 18px">
-              <strong>طلبك يفتح محادثة واتساب للمراجعة.</strong><br />لن يتم حفظ
-              بياناتك في الموقع، ولن يُعد الموعد مؤكداً حتى تتواصل المؤسسة معك.
+              <strong>طلبك يفتح محادثة واتساب برسالة جاهزة.</strong><br />اضغط
+              إرسال من واتساب لإيصال الطلب، ثم نؤكد لك الموعد بالتواصل المباشر.
             </div>
           </aside>
         </div>
@@ -322,18 +296,9 @@
       <div class="container">
         <div class="footer-grid">
           <div>
-            <a class="brand" href="../index.html"
-              ><span class="brand-mark"
-                ><i
-                  class="fa-solid fa-house-chimney"
-                  aria-hidden="true"
-                ></i></span
-              ><span
-                >سما الخليج المتقدمة<small>للخدمات المنزلية</small></span
-              ></a
-            >
+            <a class="brand" href="../index.html" aria-label="شعار مؤسسة سما الخليج المتقدمة"><img class="brand-logo" src="../assets/logo.png" data-logo-light="../assets/logo.png" data-logo-dark="../assets/logo-light.png" alt="شعار سما الخليج المتقدمة" /></a>
             <p style="margin-top: 17px">
-              خدمات النظافة والصيانة المنزلية في الرس ومنطقة القصيم.
+              خدمات النظافة والصيانة المنزلية في منطقة القصيم.
             </p>
           </div>
           <div>
@@ -348,14 +313,14 @@
           <div>
             <h3>نطاق الخدمة</h3>
             <div class="footer-links">
-              <span>الرس، منطقة القصيم</span
+              <span>مدن منطقة القصيم</span
               ><span>خدمة المدن والمحافظات في القصيم</span
               ><a href="booking.html">طلب خدمة منزلية</a>
             </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <span>مؤسسة سما الخليج المتقدمة للخدمات المنزلية</span
+          <span>جميع الحقوق محفوظة</span
           ><span>واتساب: <bdi dir="ltr">+966562752902</bdi></span>
         </div>
       </div>

@@ -1,7 +1,7 @@
 # Sama Al Khaleej Home Services Website — Design
 
 ## Goal
-Build a polished, booking-first Arabic website for مؤسسة سما الخليج المتقدمة للخدمات المنزلية serving Ar Rass and the Al-Qassim Region. The site is static, responsive, RTL, accessible, and uses only verified business facts.
+Build a polished, booking-first Arabic website for مؤسسة سما الخليج المتقدمة للخدمات المنزلية serving Buraidah, Unaizah, and the Al-Qassim Region. The site is static, responsive, RTL, accessible, and uses only verified business facts.
 
 ## Architecture
 - Six standalone semantic HTML pages: home, services, about, gallery, contact, and booking.

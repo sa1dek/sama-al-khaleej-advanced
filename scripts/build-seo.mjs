@@ -36,12 +36,6 @@ function createOrganizationData() {
     name: config.brand,
     alternateName: config.englishBrand,
     telephone: config.telephone,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: config.address.locality,
-      addressRegion: config.address.region,
-      addressCountry: config.address.country,
-    },
     areaServed: config.serviceAreas.map((name) => ({ "@type": "Place", name })),
     knowsAbout: [...config.services, ...config.servicesEnglish],
     ...(siteUrl ? { url: `${siteUrl}/` } : {}),
@@ -107,6 +101,7 @@ for (const [route, page] of Object.entries(config.pages)) {
     const structuredData = route === "index.html"
       ? `\n    <script type="application/ld+json">${JSON.stringify(createOrganizationData())}</script>`
       : "";
+    head = head.replace(/[ \t]+\r?\n/g, "\n").trimEnd();
     return `<head>${head}${structuredData}\n  </head>`;
   });
   await writeFile(filePath, html, "utf8");
