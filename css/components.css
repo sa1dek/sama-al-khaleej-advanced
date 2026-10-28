@@ -668,15 +668,98 @@ input[type="number"]::-webkit-outer-spin-button {
   text-align: left;
   letter-spacing: 0.03em;
 }
-.date-icon {
+.date-picker-trigger {
   position: absolute;
   top: 50%;
-  inset-inline-end: 18px;
+  inset-inline-end: 6px;
   z-index: 1;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  place-items: center;
   transform: translateY(-50%);
+  border: 0;
+  border-radius: var(--button-radius);
+  background: transparent;
   color: var(--accent-strong);
   font-size: 1.1rem;
-  pointer-events: none;
+  cursor: pointer;
+}
+.date-picker-trigger:hover,
+.date-picker-trigger:focus-visible {
+  background: var(--accent-soft);
+}
+.date-calendar {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-end: 0;
+  z-index: 30;
+  width: min(320px, calc(100vw - 48px));
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--button-radius);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  direction: ltr;
+}
+.date-calendar[hidden] {
+  display: none;
+}
+.date-calendar-header {
+  display: grid;
+  grid-template-columns: 38px 1fr 38px;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.date-calendar-header strong {
+  font-size: 0.98rem;
+}
+.date-calendar-header button,
+.date-calendar-day {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+.date-calendar-header button:hover:not(:disabled),
+.date-calendar-day:hover:not(:disabled) {
+  background: var(--accent-soft);
+}
+.date-calendar-header button:disabled,
+.date-calendar-day:disabled {
+  opacity: 0.38;
+  cursor: default;
+}
+.date-calendar-weekdays,
+.date-calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  justify-items: center;
+  gap: 3px;
+}
+.date-calendar-weekdays {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+}
+.date-calendar-day[aria-pressed="true"] {
+  background: var(--accent-strong);
+  color: var(--button-hover-text);
+}
+.date-calendar-day.is-today:not([aria-pressed="true"]) {
+  outline: 1px solid var(--accent-strong);
 }
 @media (max-width: 980px) {
   .testimonial-track .testimonial-card {

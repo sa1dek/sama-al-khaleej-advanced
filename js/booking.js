@@ -44,6 +44,115 @@
     return `${yearText}-${monthText}-${dayText}`;
   }
 
+  const dateControl = date.closest(".date-control");
+  const calendar = dateControl.querySelector(".date-calendar");
+  const calendarTrigger = dateControl.querySelector(".date-picker-trigger");
+  const calendarMonth = dateControl.querySelector("[data-calendar-month]");
+  const calendarWeekdays = dateControl.querySelector("[data-calendar-weekdays]");
+  const calendarDays = dateControl.querySelector("[data-calendar-days]");
+  const currentMonth = new Date(localToday.getFullYear(), localToday.getMonth(), 1);
+  let displayedMonth = currentMonth;
+  const monthFormatter = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+  const dayFormatter = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+
+  for (let day = 0; day < 7; day += 1) {
+    const weekday = document.createElement("span");
+    weekday.textContent = new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(
+      new Date(2023, 0, 1 + day),
+    );
+    calendarWeekdays.append(weekday);
+  }
+
+  function twoDigits(value) {
+    return String(value).padStart(2, "0");
+  }
+
+  function renderCalendar() {
+    const year = displayedMonth.getFullYear();
+    const month = displayedMonth.getMonth();
+    const firstWeekday = new Date(year, month, 1).getDay();
+    const numberOfDays = new Date(year, month + 1, 0).getDate();
+    const todayYear = localToday.getFullYear();
+    const todayMonth = localToday.getMonth();
+    const beforeCurrentMonth = year < todayYear || (year === todayYear && month < todayMonth);
+    calendarMonth.textContent = monthFormatter.format(displayedMonth);
+    calendarDays.replaceChildren();
+    dateControl.querySelector("[data-calendar-previous]").disabled =
+      beforeCurrentMonth || (year === todayYear && month === todayMonth);
+
+    for (let blank = 0; blank < firstWeekday; blank += 1) {
+      const spacer = document.createElement("span");
+      spacer.setAttribute("aria-hidden", "true");
+      calendarDays.append(spacer);
+    }
+
+    const selectedDate = parseUsDate(date.value);
+    for (let day = 1; day <= numberOfDays; day += 1) {
+      const isoDate = `${year}-${twoDigits(month + 1)}-${twoDigits(day)}`;
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "date-calendar-day";
+      button.textContent = String(day);
+      button.disabled = isoDate < minimumDate;
+      button.setAttribute("aria-label", dayFormatter.format(new Date(year, month, day)));
+      button.setAttribute("aria-pressed", String(isoDate === selectedDate));
+      if (isoDate === minimumDate) button.classList.add("is-today");
+      button.addEventListener("click", () => {
+        date.value = `${twoDigits(month + 1)}/${twoDigits(day)}/${year}`;
+        date.setSelectionRange(date.value.length, date.value.length);
+        date.dispatchEvent(new Event("input", { bubbles: true }));
+        closeCalendar();
+        date.focus();
+      });
+      calendarDays.append(button);
+    }
+  }
+
+  function openCalendar() {
+    const selectedDate = parseUsDate(date.value);
+    const startDate = selectedDate && selectedDate >= minimumDate
+      ? new Date(`${selectedDate}T00:00:00`)
+      : localToday;
+    displayedMonth = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+    renderCalendar();
+    calendar.hidden = false;
+    calendarTrigger.setAttribute("aria-expanded", "true");
+  }
+
+  function closeCalendar() {
+    calendar.hidden = true;
+    calendarTrigger.setAttribute("aria-expanded", "false");
+  }
+
+  calendarTrigger.addEventListener("click", () => {
+    if (calendar.hidden) openCalendar();
+    else closeCalendar();
+  });
+  dateControl.querySelector("[data-calendar-previous]").addEventListener("click", () => {
+    displayedMonth = new Date(displayedMonth.getFullYear(), displayedMonth.getMonth() - 1, 1);
+    renderCalendar();
+  });
+  dateControl.querySelector("[data-calendar-next]").addEventListener("click", () => {
+    displayedMonth = new Date(displayedMonth.getFullYear(), displayedMonth.getMonth() + 1, 1);
+    renderCalendar();
+  });
+  dateControl.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !calendar.hidden) {
+      closeCalendar();
+      calendarTrigger.focus();
+    }
+  });
+  document.addEventListener("pointerdown", (event) => {
+    if (!dateControl.contains(event.target)) closeCalendar();
+  });
+
   const queryService = new URLSearchParams(window.location.search).get("service");
   if (queryService) {
     const aliases = {
@@ -106,7 +215,10 @@
   form.addEventListener("input", (event) => {
     const field = event.target;
     if (!field.matches("input,select,textarea")) return;
-    if (field === date) formatUsDateInput(field);
+    if (field === date) {
+      formatUsDateInput(field);
+      if (!calendar.hidden) renderCalendar();
+    }
     field.setCustomValidity("");
     field.classList.remove("input-error");
     const error = document.querySelector(`#${field.id}-error`);

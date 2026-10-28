@@ -197,7 +197,6 @@
                     >التاريخ المفضل <span class="required">*</span></label
                   >
                   <div class="date-control" dir="ltr">
-                    <i class="date-icon fa-regular fa-calendar" aria-hidden="true"></i>
                     <input
                       id="date"
                       name="date"
@@ -211,6 +210,22 @@
                       required
                       aria-describedby="date-error"
                     />
+                    <button
+                      class="date-picker-trigger"
+                      type="button"
+                      aria-label="Open calendar"
+                      aria-expanded="false"
+                      aria-controls="date-calendar"
+                    ><i class="fa-regular fa-calendar" aria-hidden="true"></i></button>
+                    <div class="date-calendar" id="date-calendar" role="dialog" aria-label="Choose a date" hidden>
+                      <div class="date-calendar-header">
+                        <button type="button" data-calendar-previous aria-label="Previous month"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                        <strong data-calendar-month></strong>
+                        <button type="button" data-calendar-next aria-label="Next month"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                      </div>
+                      <div class="date-calendar-weekdays" data-calendar-weekdays aria-hidden="true"></div>
+                      <div class="date-calendar-days" data-calendar-days></div>
+                    </div>
                   </div>
                   <span
                     class="error"
