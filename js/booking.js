@@ -5,10 +5,9 @@
 
   const status = document.querySelector("#booking-status");
   const date = form.elements.date;
-  const datePicker = form.querySelector("#date-picker");
   const localToday = new Date();
   localToday.setMinutes(localToday.getMinutes() - localToday.getTimezoneOffset());
-  datePicker.min = localToday.toISOString().slice(0, 10);
+  const minimumDate = localToday.toISOString().slice(0, 10);
 
   function toWesternDigits(value) {
     return value
@@ -44,28 +43,6 @@
     ) return null;
     return `${yearText}-${monthText}-${dayText}`;
   }
-
-  function formatIsoDate(value) {
-    const [year, month, day] = value.split("-");
-    return `${month}/${day}/${year}`;
-  }
-
-  form.querySelector(".date-picker-trigger").addEventListener("click", () => {
-    const parsed = parseUsDate(date.value);
-    datePicker.value = parsed || "";
-    try {
-      if (typeof datePicker.showPicker === "function") datePicker.showPicker();
-      else throw new Error("Native date picker API unavailable");
-    } catch (_) {
-      datePicker.focus();
-      datePicker.click();
-    }
-  });
-  datePicker.addEventListener("change", () => {
-    if (!datePicker.value) return;
-    date.value = formatIsoDate(datePicker.value);
-    date.dispatchEvent(new Event("input", { bubbles: true }));
-  });
 
   const queryService = new URLSearchParams(window.location.search).get("service");
   if (queryService) {
@@ -111,7 +88,7 @@
       if (field.name === "date" && value) {
         const parsedDate = parseUsDate(value);
         if (!parsedDate) message = "أدخل تاريخًا صحيحًا بصيغة MM/DD/YYYY.";
-        else if (parsedDate < datePicker.min) message = "اختر تاريخًا اليوم أو بعده.";
+        else if (parsedDate < minimumDate) message = "اختر تاريخًا اليوم أو بعده.";
       }
       field.setCustomValidity(message);
       field.classList.toggle("input-error", Boolean(message));
