@@ -195,15 +195,37 @@
                 <div class="form-field">
                   <label for="date"
                     >التاريخ المفضل <span class="required">*</span></label
-                  ><input
-                    id="date"
-                    name="date"
-                    type="date"
-                    lang="en"
-                    dir="ltr"
-                    required
-                    aria-describedby="date-error"
-                  /><span
+                  >
+                  <div class="date-control" dir="ltr">
+                    <input
+                      id="date"
+                      name="date"
+                      type="text"
+                      inputmode="numeric"
+                      autocomplete="off"
+                      lang="en"
+                      placeholder="MM/DD/YYYY"
+                      pattern="\d{2}/\d{2}/\d{4}"
+                      dir="ltr"
+                      required
+                      aria-describedby="date-error"
+                    />
+                    <button
+                      class="date-picker-trigger"
+                      type="button"
+                      aria-label="اختيار التاريخ من التقويم"
+                      title="اختيار التاريخ من التقويم"
+                    ><i class="fa-regular fa-calendar" aria-hidden="true"></i></button>
+                    <input
+                      class="native-date-picker"
+                      id="date-picker"
+                      type="date"
+                      lang="en"
+                      tabindex="-1"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <span
                     class="error"
                     id="date-error"
                     aria-live="polite"

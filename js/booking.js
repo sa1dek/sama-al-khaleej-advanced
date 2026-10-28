@@ -5,9 +5,67 @@
 
   const status = document.querySelector("#booking-status");
   const date = form.elements.date;
+  const datePicker = form.querySelector("#date-picker");
   const localToday = new Date();
   localToday.setMinutes(localToday.getMinutes() - localToday.getTimezoneOffset());
-  date.min = localToday.toISOString().slice(0, 10);
+  datePicker.min = localToday.toISOString().slice(0, 10);
+
+  function toWesternDigits(value) {
+    return value
+      .replace(/[٠-٩]/g, (digit) => String(digit.charCodeAt(0) - 0x0660))
+      .replace(/[۰-۹]/g, (digit) => String(digit.charCodeAt(0) - 0x06f0));
+  }
+
+  function formatUsDateInput(field) {
+    const cursor = field.selectionStart ?? field.value.length;
+    const digitsBeforeCursor = toWesternDigits(field.value.slice(0, cursor)).replace(/\D/g, "").length;
+    const digits = toWesternDigits(field.value).replace(/\D/g, "").slice(0, 8);
+    let value = digits.slice(0, 2);
+    if (digits.length > 2) value += `/${digits.slice(2, 4)}`;
+    if (digits.length > 4) value += `/${digits.slice(4)}`;
+    field.value = value;
+
+    const nextCursor = digitsBeforeCursor + (digitsBeforeCursor > 2 ? 1 : 0) + (digitsBeforeCursor > 4 ? 1 : 0);
+    field.setSelectionRange(nextCursor, nextCursor);
+  }
+
+  function parseUsDate(value) {
+    const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value);
+    if (!match) return null;
+    const [, monthText, dayText, yearText] = match;
+    const month = Number(monthText);
+    const day = Number(dayText);
+    const year = Number(yearText);
+    const candidate = new Date(year, month - 1, day);
+    if (
+      candidate.getFullYear() !== year ||
+      candidate.getMonth() !== month - 1 ||
+      candidate.getDate() !== day
+    ) return null;
+    return `${yearText}-${monthText}-${dayText}`;
+  }
+
+  function formatIsoDate(value) {
+    const [year, month, day] = value.split("-");
+    return `${month}/${day}/${year}`;
+  }
+
+  form.querySelector(".date-picker-trigger").addEventListener("click", () => {
+    const parsed = parseUsDate(date.value);
+    datePicker.value = parsed || "";
+    try {
+      if (typeof datePicker.showPicker === "function") datePicker.showPicker();
+      else throw new Error("Native date picker API unavailable");
+    } catch (_) {
+      datePicker.focus();
+      datePicker.click();
+    }
+  });
+  datePicker.addEventListener("change", () => {
+    if (!datePicker.value) return;
+    date.value = formatIsoDate(datePicker.value);
+    date.dispatchEvent(new Event("input", { bubbles: true }));
+  });
 
   const queryService = new URLSearchParams(window.location.search).get("service");
   if (queryService) {
@@ -50,8 +108,10 @@
           message = "أدخل رقم جوال سعوديًا صحيحًا يبدأ بـ 05 أو +9665.";
         }
       }
-      if (field.name === "date" && value && value < date.min) {
-        message = "اختر تاريخًا اليوم أو بعده.";
+      if (field.name === "date" && value) {
+        const parsedDate = parseUsDate(value);
+        if (!parsedDate) message = "أدخل تاريخًا صحيحًا بصيغة MM/DD/YYYY.";
+        else if (parsedDate < datePicker.min) message = "اختر تاريخًا اليوم أو بعده.";
       }
       field.setCustomValidity(message);
       field.classList.toggle("input-error", Boolean(message));
@@ -69,6 +129,7 @@
   form.addEventListener("input", (event) => {
     const field = event.target;
     if (!field.matches("input,select,textarea")) return;
+    if (field === date) formatUsDateInput(field);
     field.setCustomValidity("");
     field.classList.remove("input-error");
     const error = document.querySelector(`#${field.id}-error`);
