@@ -39,7 +39,7 @@
 }
 .btn-light {
   background: #fff;
-  color: var(--ink);
+  color: #343331;
 }
 .icon-btn {
   width: 46px;
@@ -187,7 +187,7 @@
   place-items: center;
   border-radius: 50%;
   background: var(--accent);
-  color: #fff;
+  color: var(--button-hover-text);
   font-weight: 800;
 }
 .cta-band {
@@ -233,6 +233,39 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
+.home-about-section {
+  background: var(--soft);
+}
+.home-why-section {
+  background: var(--soft);
+}
+.home-order-cta-section {
+  padding-bottom: 24px;
+}
+.home-order-cta-section + .stats-section {
+  padding-top: 0;
+}
+.home-about-grid {
+  gap: clamp(30px, 5vw, 64px);
+}
+.home-about-copy .btn {
+  margin-top: 8px;
+}
+.home-about-visual {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.home-about-visual img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 42%;
+}
 .home-gallery-grid .gallery-item {
   width: 100%;
   overflow: hidden;
@@ -264,7 +297,7 @@
 }
 .home-section-link { margin-top: 25px; }
 .btn-light {
-  color: var(--ink);
+  color: #343331;
 }
 .gallery-filter {
   display: flex;
@@ -285,7 +318,7 @@
 .gallery-filter button[aria-pressed="true"] {
   background: var(--accent-strong);
   border-color: var(--accent-strong);
-  color: #fff;
+  color: var(--button-hover-text);
 }
 .gallery-item[hidden] {
   display: none;
@@ -414,12 +447,12 @@
 }
 .action-bar .btn-whatsapp {
   background: #25d366;
-  color: #1f2e4a;
+  color: #fff;
 }
 .action-bar .btn-whatsapp .fa-whatsapp { color: #fff; }
 .action-bar .btn-call {
-  background: #343a40;
-  color: #f8f9fa;
+  background: var(--call-bg);
+  color: var(--call-text);
 }
 .gallery-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -772,7 +805,7 @@ input[type="number"]::-webkit-outer-spin-button {
     flex-basis: 88%;
     min-height: 230px;
   }
-  .home-gallery-grid .gallery-media { height: clamp(260px, 80vw, 390px); }
+  .home-gallery-grid .gallery-media { height: clamp(150px, 36vw, 220px); }
   .lightbox { padding: 10px; }
   .lightbox .lightbox-media,
   .lightbox .lightbox-media:where(video) {

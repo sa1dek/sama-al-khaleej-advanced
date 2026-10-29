@@ -61,7 +61,10 @@
   grids.forEach((grid) => {
     const isPreview = grid.hasAttribute("data-gallery-preview");
     const selectedItems = isPreview
-      ? [allItems[0], ...allItems.filter((item) => item.type === "video").slice(0, 2)]
+      ? [
+          ...allItems.filter((item) => item.type === "image").slice(0, 2),
+          ...allItems.filter((item) => item.type === "video").slice(0, 4),
+        ]
       : allItems;
 
     if (isPreview && grid.children.length) {

@@ -2,6 +2,11 @@
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
+@media (min-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
 @media (max-width: 980px) {
   .nav-links {
     gap: 14px;
@@ -14,6 +19,10 @@
   }
   .steps {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-grid,
+  .home-gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 @media (max-width: 760px) {
@@ -96,6 +105,9 @@
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .home-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .cta-band {
     padding: 35px 25px;
   }
@@ -114,8 +126,7 @@
 }
 @media (max-width: 480px) {
   .service-grid,
-  .steps,
-  .gallery-grid {
+  .steps {
     grid-template-columns: 1fr;
   }
   .brand {
@@ -237,13 +248,14 @@ dialog.lightbox::backdrop {
   }
   .gallery-grid,
   .home-gallery-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
   .stats-item {
     padding: 18px 10px;
   }
   .gallery-media {
-    height: clamp(260px, 78vw, 390px);
+    height: clamp(150px, 34vw, 210px);
   }
   .cta-band {
     padding: 32px 22px;
