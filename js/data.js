@@ -5,6 +5,7 @@ const galleryAssetsBase = new URL(
 );
 
 const galleryImages = [
+  "25.jpeg",
   "1.jpeg",
   "2.jpeg",
   "3.jpeg",
@@ -13,6 +14,7 @@ const galleryImages = [
 ].map((src, index) => ({
   src: new URL(src, galleryAssetsBase).href,
   title: [
+    "تنظيف كنب",
     "تنظيف كنب وأرضيات",
     "تنظيف فيلا",
     "تنظيف كنب",
@@ -21,18 +23,19 @@ const galleryImages = [
   ][index],
 }));
 
-const galleryVideos = Array.from({ length: 19 }, (_, index) => `${index + 6}.mp4`).map(
-  (src) => ({
-    src: new URL(src, galleryAssetsBase).href,
-    title: "فيديو من خدمات التنظيف",
-  }),
-);
+const galleryVideos = Array.from(
+  { length: 19 },
+  (_, index) => `${index + 6}.mp4`,
+).map((src) => ({
+  src: new URL(src, galleryAssetsBase).href,
+  title: "فيديو من خدمات التنظيف",
+}));
 
 window.SAMA_GALLERY = {
   images: galleryImages,
   videos: galleryVideos,
   featured: [
-    { ...galleryImages[1], type: "image" },
+    { ...galleryImages[0], type: "image" },
     { ...galleryImages[2], type: "image" },
     ...galleryVideos.slice(0, 4).map((item) => ({ ...item, type: "video" })),
   ],
