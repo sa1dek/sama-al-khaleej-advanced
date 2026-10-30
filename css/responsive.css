@@ -14,6 +14,11 @@
   .hero-grid {
     gap: 30px;
   }
+  /* بداية التعديل: ظبط صورة الهيرو على التابلت */
+  .hero-bg {
+    background-position: center center;
+  }
+  /* نهاية التعديل */
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -67,6 +72,14 @@
   .hero {
     padding: 35px 0 55px;
   }
+  /* بداية التعديل: ظبط صورة الهيرو والكلام على الموبايل */
+  .hero-bg {
+    opacity: 0.25; /* زيادة وضوح الصورة شوية على الموبايل */
+  }
+  .hero-copy h1 {
+    font-size: 2rem; /* تصغير العنوان عشان ميبقاش ضخم */
+  }
+  /* نهاية التعديل */
   .hero-grid,
   .split {
     grid-template-columns: 1fr;
@@ -152,6 +165,14 @@
   .hero-actions .btn {
     width: 100%;
   }
+  /* بداية التعديل: ظبط الكلام على الموبايلات الصغيرة */
+  .hero-copy h1 {
+    font-size: 1.7rem;
+  }
+  .hero-copy .lead {
+    font-size: 0.95rem;
+  }
+  /* نهاية التعديل */
 }
 dialog.lightbox {
   position: fixed;
@@ -205,6 +226,9 @@ dialog.lightbox::backdrop {
   .site-header .nav-actions > .btn {
     display: none;
   }
+  .coverage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 480px) {
   .section .grid[style*="repeat(3,1fr)"] {
@@ -239,6 +263,11 @@ dialog.lightbox::backdrop {
   body {
     padding-bottom: 68px;
   }
+  .coverage-item {
+    padding: 14px 16px;
+    font-size: 1rem;
+    gap: 10px;
+  }
 }
 @media (max-width: 480px) {
   .service-grid,
@@ -266,5 +295,8 @@ dialog.lightbox::backdrop {
   .action-bar .btn {
     font-size: 0.79rem;
     gap: 6px;
+  }
+  .coverage-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

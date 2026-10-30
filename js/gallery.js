@@ -17,14 +17,18 @@
   let currentItems = allItems;
   let currentIndex = 0;
   let returnFocus = null;
-  const previewObserver = "IntersectionObserver" in window
-    ? new IntersectionObserver((entries) => {
-        entries.forEach(({ target, isIntersecting }) => {
-          if (isIntersecting) target.play().catch(() => {});
-          else target.pause();
-        },);
-      }, { rootMargin: "120px 0px" })
-    : null;
+  const previewObserver =
+    "IntersectionObserver" in window
+      ? new IntersectionObserver(
+          (entries) => {
+            entries.forEach(({ target, isIntersecting }) => {
+              if (isIntersecting) target.play().catch(() => {});
+              else target.pause();
+            });
+          },
+          { rootMargin: "120px 0px" },
+        )
+      : null;
 
   function itemButton(item, index, collection) {
     const card = document.createElement("button");
@@ -36,7 +40,9 @@
       `${item.type === "image" ? "فتح صورة" : "فتح فيديو"}`,
     );
 
-    const media = document.createElement(item.type === "image" ? "img" : "video");
+    const media = document.createElement(
+      item.type === "image" ? "img" : "video",
+    );
     media.className = "gallery-media";
     media.src = item.src;
     media.alt = item.type === "image" ? item.title : "";
@@ -73,9 +79,11 @@
         card.addEventListener("click", () => open(index, selectedItems));
       });
     } else {
-      grid.append(...selectedItems.map((item, index) =>
-        itemButton(item, index, isPreview ? selectedItems : allItems),
-      ));
+      grid.append(
+        ...selectedItems.map((item, index) =>
+          itemButton(item, index, isPreview ? selectedItems : allItems),
+        ),
+      );
     }
   });
 
@@ -83,7 +91,9 @@
     const item = currentItems[currentIndex];
     if (!item) return;
     shareStatus.textContent = "";
-    const media = document.createElement(item.type === "image" ? "img" : "video");
+    const media = document.createElement(
+      item.type === "image" ? "img" : "video",
+    );
     media.className = "gallery-media lightbox-media";
     media.src = item.src;
     media.alt = item.type === "image" ? item.title : "";
@@ -116,7 +126,9 @@
 
   function pausePreviews() {
     grids.forEach((grid) => {
-      grid.querySelectorAll("video.gallery-media").forEach((video) => video.pause());
+      grid
+        .querySelectorAll("video.gallery-media")
+        .forEach((video) => video.pause());
     });
   }
 
@@ -132,7 +144,8 @@
   }
 
   function move(step) {
-    currentIndex = (currentIndex + step + currentItems.length) % currentItems.length;
+    currentIndex =
+      (currentIndex + step + currentItems.length) % currentItems.length;
     renderModal();
   }
 
@@ -166,9 +179,13 @@
           try {
             const response = await fetch(publicUrl);
             if (response.ok) {
-              const file = new File([await response.blob()], "sama-cleaning-work.jpg", {
-                type: response.headers.get("content-type") || "image/jpeg",
-              });
+              const file = new File(
+                [await response.blob()],
+                "sama-cleaning-work.jpg",
+                {
+                  type: response.headers.get("content-type") || "image/jpeg",
+                },
+              );
               if (navigator.canShare({ files: [file] })) {
                 await navigator.share({ title: item.title, files: [file] });
                 return;
@@ -179,7 +196,11 @@
           }
         }
         try {
-          await navigator.share({ title: item.title, text: item.title, url: publicUrl });
+          await navigator.share({
+            title: item.title,
+            text: item.title,
+            url: publicUrl,
+          });
           return;
         } catch (error) {
           if (error?.name === "AbortError") return;
@@ -195,16 +216,20 @@
 
   document.querySelectorAll("[data-gallery-filter]").forEach((button) => {
     button.addEventListener("click", () => {
-      document.querySelectorAll("[data-gallery-filter]").forEach((filter) =>
-        filter.setAttribute("aria-pressed", String(filter === button)),
-      );
-      grids.filter((grid) => !grid.hasAttribute("data-gallery-preview")).forEach((grid) => {
-        grid.querySelectorAll(".gallery-item").forEach((card) => {
-          card.hidden =
-            button.dataset.galleryFilter !== "all" &&
-            card.dataset.type !== button.dataset.galleryFilter;
+      document
+        .querySelectorAll("[data-gallery-filter]")
+        .forEach((filter) =>
+          filter.setAttribute("aria-pressed", String(filter === button)),
+        );
+      grids
+        .filter((grid) => !grid.hasAttribute("data-gallery-preview"))
+        .forEach((grid) => {
+          grid.querySelectorAll(".gallery-item").forEach((card) => {
+            card.hidden =
+              button.dataset.galleryFilter !== "all" &&
+              card.dataset.type !== button.dataset.galleryFilter;
+          });
         });
-      });
     });
   });
 

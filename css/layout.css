@@ -62,16 +62,33 @@
 }
 .hero {
   padding: 92px 0 86px;
-  background: radial-gradient(ellipse at 8% 10%, var(--accent-soft), transparent 56%);
+  background: radial-gradient(
+    ellipse at 8% 10%,
+    var(--accent-soft),
+    transparent 56%
+  );
+  position: relative;
+  overflow: hidden;
 }
 .hero-grid {
   display: block;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/hero-img.jpg");
+  background-size: cover;
+  background-position: center 30%;
+  opacity:50%;
+  z-index: 0;
 }
 .hero-copy {
   max-width: 850px;
   margin-inline: auto;
   padding-block: 20px;
   text-align: center;
+  position: relative; 
+  z-index: 1;
 }
 .hero-copy .lead {
   margin-inline: auto;

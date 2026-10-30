@@ -1,14 +1,30 @@
 const galleryDataScript = document.querySelector('script[src$="js/data.js"]');
-const galleryAssetsBase = new URL("../assets/img/", galleryDataScript?.src || document.baseURI);
+const galleryAssetsBase = new URL(
+  "../assets/img/",
+  galleryDataScript?.src || document.baseURI,
+);
 
 window.SAMA_GALLERY = {
   images: [
     {
-      src: new URL("WhatsApp Image 2026-10-25 at 6.02.59 PM (2).jpeg", galleryAssetsBase).href,
+      src: new URL(
+        "WhatsApp Image 2026-10-27 at 4.24.41 PM.jpeg",
+        galleryAssetsBase,
+      ).href,
+      title: "تنظيف خزانات",
+    },
+    {
+      src: new URL(
+        "WhatsApp Image 2026-10-25 at 6.02.59 PM (2).jpeg",
+        galleryAssetsBase,
+      ).href,
       title: "تنظيف فيلا",
     },
     {
-      src: new URL("WhatsApp Image 2026-10-25 at 6.02.59 PM (3).jpeg", galleryAssetsBase).href,
+      src: new URL(
+        "WhatsApp Image 2026-10-25 at 6.02.59 PM (3).jpeg",
+        galleryAssetsBase,
+      ).href,
       title: "تنظيف كنبة",
     },
   ],
@@ -68,14 +84,6 @@ window.SAMA_TESTIMONIALS = [
     initial: "س",
     rating: 5,
     text: "ما شاء الله شغل جميل ومحترمين، وغير كذا أسعارهم جداً معقولة.",
-  },
-  {
-    name: "Saleh N",
-    initial: "S",
-    rating: 1,
-    text: "شغل غير احترافي.",
-    response:
-      "أخ صالح، تم تنفيذ الخدمة بناءً على طلبك ورغبتك وحرصنا على رضاك. نقدر لك رأيك.",
   },
   {
     name: "ابراهيم سليمان",
