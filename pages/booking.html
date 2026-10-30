@@ -31,11 +31,12 @@
     />
     <title>حجز تنظيف وصيانة منزلية في القصيم | سما الخليج المتقدمة</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../css/variables.css" />
-    <link rel="stylesheet" href="../css/base.css" />
-    <link rel="stylesheet" href="../css/components.css" />
-    <link rel="stylesheet" href="../css/layout.css" />
-    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+
+
+
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -119,8 +120,8 @@
           </p>
         </div>
       </section>
-      <section class="section" style="padding-top: 35px">
-        <div class="container split" style="align-items: start">
+      <section class="section section--booking">
+        <div class="container split split--start">
           <div class="card">
             <form id="booking-form" novalidate>
               <div class="form-grid">
@@ -391,7 +392,7 @@
                   ></textarea>
                 </div>
               </div>
-              <button class="btn" type="submit" style="margin-top: 22px">
+              <button class="btn mt-22" type="submit">
                 أرسل الطلب عبر واتساب
                 <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
               </button>
@@ -400,7 +401,7 @@
               id="booking-status"
               role="status"
               aria-live="polite"
-              style="margin: 14px 0 0"
+              class="booking-status-message"
             ></p>
           </div>
           <aside>
@@ -408,7 +409,7 @@
               <span class="icon-tile"
                 ><i class="fa-solid fa-circle-info" aria-hidden="true"></i
               ></span>
-              <h2 style="font-size: 1.65rem">ماذا يحدث بعد الطلب؟</h2>
+              <h2 class="heading-medium">ماذا يحدث بعد الطلب؟</h2>
               <p>
                 يفتح واتساب برسالة جاهزة ببيانات الطلب، ثم نتواصل معك لتأكيد
                 استلامه والاتفاق على الموعد.
@@ -418,7 +419,7 @@
                 التفاصيل والموعد.
               </div>
             </div>
-            <div class="notice" style="margin-top: 18px">
+            <div class="notice mt-18">
               <strong>طلبك يفتح محادثة واتساب برسالة جاهزة.</strong><br />اضغط
               إرسال من واتساب لإيصال الطلب، ثم نؤكد لك الموعد بالتواصل المباشر.
             </div>
@@ -441,7 +442,7 @@
                 data-logo-dark="../assets/logo-light.png"
                 alt="شعار سما الخليج المتقدمة"
             /></a>
-            <p style="margin-top: 17px">
+            <p class="footer-note">
               خدمات النظافة والصيانة المنزلية في منطقة القصيم.
             </p>
           </div>

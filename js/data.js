@@ -4,54 +4,38 @@ const galleryAssetsBase = new URL(
   galleryDataScript?.src || document.baseURI,
 );
 
-window.SAMA_GALLERY = {
-  images: [
-    {
-      src: new URL(
-        "WhatsApp Image 2026-10-27 at 4.24.41 PM.jpeg",
-        galleryAssetsBase,
-      ).href,
-      title: "تنظيف خزانات",
-    },
-    {
-      src: new URL(
-        "WhatsApp Image 2026-10-25 at 6.02.59 PM (2).jpeg",
-        galleryAssetsBase,
-      ).href,
-      title: "تنظيف فيلا",
-    },
-    {
-      src: new URL(
-        "WhatsApp Image 2026-10-25 at 6.02.59 PM (3).jpeg",
-        galleryAssetsBase,
-      ).href,
-      title: "تنظيف كنبة",
-    },
-  ],
-  videos: [
-    "WhatsApp Video 2026-10-25 at 6.02.44 PM.mp4",
-    "WhatsApp Video 2026-10-25 at 6.02.45 PM.mp4",
-    "WhatsApp Video 2026-10-25 at 6.02.58 PM.mp4",
-    "WhatsApp Video 2026-10-25 at 6.02.58 PM (1).mp4",
-    "WhatsApp Video 2026-10-25 at 6.02.58 PM (2).mp4",
-    "WhatsApp Video 2026-10-25 at 6.02.59 PM.mp4",
-    "WhatsApp Video 2026-10-25 at 6.02.59 PM (1).mp4",
-    "WhatsApp Video 2026-10-25 at 6.03.00 PM.mp4",
-    "WhatsApp Video 2026-10-25 at 6.03.00 PM (1).mp4",
-    "WhatsApp Video 2026-10-25 at 6.03.00 PM (2).mp4",
-    "WhatsApp Video 2026-10-25 at 6.03.00 PM (3).mp4",
-    "WhatsApp Video 2026-10-25 at 6.03.00 PM (4).mp4",
-    "WhatsApp Video 2026-10-25 at 6.03.00 PM (5).mp4",
-    "WhatsApp Video 2026-10-25 at 6.03.01 PM.mp4",
-    "WhatsApp Video 2026-10-25 at 6.03.01 PM (1).mp4",
-    "WhatsApp Video 2026-10-25 at 6.03.01 PM (2).mp4",
-    "WhatsApp Video 2026-10-25 at 6.03.01 PM (3).mp4",
-    "WhatsApp Video 2026-10-25 at 6.03.01 PM (4).mp4",
-    "WhatsApp Video 2026-10-25 at 6.03.01 PM (5).mp4",
-  ].map((src) => ({
+const galleryImages = [
+  "1.jpeg",
+  "2.jpeg",
+  "3.jpeg",
+  "4.jpeg",
+  "5.jpeg",
+].map((src, index) => ({
+  src: new URL(src, galleryAssetsBase).href,
+  title: [
+    "تنظيف كنب وأرضيات",
+    "تنظيف فيلا",
+    "تنظيف كنب",
+    "عناية بالمفروشات والأرضيات",
+    "تنظيف خزان",
+  ][index],
+}));
+
+const galleryVideos = Array.from({ length: 19 }, (_, index) => `${index + 6}.mp4`).map(
+  (src) => ({
     src: new URL(src, galleryAssetsBase).href,
     title: "فيديو من خدمات التنظيف",
-  })),
+  }),
+);
+
+window.SAMA_GALLERY = {
+  images: galleryImages,
+  videos: galleryVideos,
+  featured: [
+    { ...galleryImages[1], type: "image" },
+    { ...galleryImages[2], type: "image" },
+    ...galleryVideos.slice(0, 4).map((item) => ({ ...item, type: "video" })),
+  ],
 };
 
 window.SAMA_TESTIMONIALS = [

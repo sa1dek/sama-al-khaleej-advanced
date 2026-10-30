@@ -34,17 +34,13 @@
       بالقصيم
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
     <meta name="theme-color" content="#f7f6f2" />
     <!-- <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2375634a'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-size='58' fill='white' font-family='Arial'%3Eس%3C/text%3E%3C/svg%3E"
     /> -->
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/animations.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -185,144 +181,201 @@
         </div>
       </section>
       <section class="section home-about-section" id="home-about">
-        <div class="container split home-about-grid">
+        <div class="container home-about-grid">
           <div class="home-about-copy">
             <span class="eyebrow">من نحن</span>
             <h2>عناية منزلية تبدأ من التفاصيل</h2>
             <p class="lead">
-              في سما الخليج، نهتم بنظافة منزلك وصيانة مرافقه بخطوات واضحة وعناية
-              تناسب احتياجك. نخدم بريدة وعنيزة ومدن القصيم، ونحرص على أن تعرف ما
-              سيُنجز قبل بدء العمل.
+              في سما الخليج، نقدم خدمات النظافة والصيانة المنزلية بعناية ووضوح،
+              من تنظيف المنزل والمفروشات إلى متابعة احتياجات الصيانة. نخدم بريدة
+              ومدن القصيم، وننسق معك تفاصيل العمل والموعد قبل التنفيذ.
             </p>
             <a class="btn btn-secondary" href="pages/about.html"
               >اعرف المزيد عنا</a
             >
           </div>
-          <!-- <figure class="home-about-visual">
-            <img
-              src="assets/WhatsApp Image 2026-10-27 at 4.24.41 PM.jpeg"
-              alt="مقارنة قبل وبعد تنظيف خزان مياه"
-              loading="lazy"
-            />
-          </figure> -->
         </div>
       </section>
       <section class="section home-services-section" id="home-services">
         <div class="container">
           <div class="section-head">
-            <span class="eyebrow">خدماتنا</span>
-            <h2>كل ما يحتاجه منزلك، في مكان واحد</h2>
-            <p>خدمات نظافة وعناية وصيانة منزلية في منطقة القصيم.</p>
+            <span class="eyebrow">خدمات منزلية متكاملة في القصيم</span>
+            <h2>خدماتنا</h2>
+            <p>خدمات تنظيف وصيانة تناسب احتياجات منزلك ومرافقه.</p>
           </div>
-          <div class="grid service-grid">
-            <article
-              class="card service-card reveal"
-              style="background-color: #ff910079"
-            >
-              <span class="icon-tile"
-                ><i class="fa-solid fa-broom" aria-hidden="true"></i
-              ></span>
-              <h3>تنظيف المنازل والفلل</h3>
-              <p>
-                تنظيف شامل للمنازل والشقق والفلل والقصور والاستراحات، مع مراعاة
-                اختلاف المساحات وطبيعة كل مكان، لتستعيد مساحتك ترتيبها ونظافتها
-                بعناية.
-              </p>
-              <a
-                class="btn btn-secondary"
-                href="pages/booking.html?service=تنظيف%20المنازل"
-                >احجز هذه الخدمة</a
-              >
+          <div class="grid custom-services-grid">
+            <!-- 1. بيج -->
+            <article class="custom-service-card bg-beige">
+              <div class="diamond-icon-wrapper">
+                <i class="fa-solid fa-couch"></i>
+              </div>
+              <div class="card-content">
+                <h3>تنظيف الاثاث والمفروشات</h3>
+                <p>
+                  بجودة عمل حاصلة على الأيزو العالية وبأحدث المعدات نقدم خدمات
+                  تنظيف لجميع المفروشات.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://wa.me/966562752902"
+                    class="btn-whatsapp"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-whatsapp"></i> اطلب الان
+                  </a>
+                  <a
+                    href="pages/booking.html?service=تنظيف%20الأثاث"
+                    class="btn-details"
+                  >
+                    تفاصيل الخدمة <i class="fa-solid fa-arrow-left"></i>
+                  </a>
+                </div>
+              </div>
             </article>
-            <article
-              class="card service-card reveal"
-              style="background-color: #ff910079"
-            >
-              <span class="icon-tile"
-                ><i class="fa-solid fa-hammer" aria-hidden="true"></i
-              ></span>
-              <h3>النظافة بعد البناء</h3>
-              <p>
-                نزيل غبار البناء وآثار التشطيب من الأرضيات والأسطح والتفاصيل،
-                ونهيئ المكان ليصبح أنظف وأسهل استعدادًا للسكن أو الاستخدام.
-              </p>
-              <a
-                class="btn btn-secondary"
-                href="pages/booking.html?service=النظافة%20بعد%20البناء"
-                >احجز هذه الخدمة</a
-              >
+
+            <!-- 2. أخضر فاتح -->
+            <article class="custom-service-card bg-green">
+              <div class="diamond-icon-wrapper">
+                <i class="fa-solid fa-gem"></i>
+              </div>
+              <div class="card-content">
+                <h3>جلي ومعالجة الرخام بالالماس</h3>
+                <p>
+                  جلي الرخام بأقراص الألماس بأحدث التقنيات والمعدات المتخصصة في
+                  جلي وتلميع الرخام.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://wa.me/966562752902"
+                    class="btn-whatsapp"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-whatsapp"></i> اطلب الان
+                  </a>
+                  <a
+                    href="pages/booking.html?service=جلي%20الرخام"
+                    class="btn-details"
+                  >
+                    تفاصيل الخدمة <i class="fa-solid fa-arrow-left"></i>
+                  </a>
+                </div>
+              </div>
             </article>
-            <article
-              class="card service-card reveal"
-              style="background-color: #ff910079"
-            >
-              <span class="icon-tile"
-                ><i class="fa-solid fa-soap" aria-hidden="true"></i
-              ></span>
-              <h3>غسيل وتلميع الأرضيات</h3>
-              <p>
-                عناية بالبلاط والرخام وأنواع الأرضيات المختلفة، باستخدام طريقة
-                تناسب السطح وتساعد على استعادة مظهره النظيف والمرتب.
-              </p>
-              <a
-                class="btn btn-secondary"
-                href="pages/booking.html?service=غسيل%20الأرضيات"
-                >احجز هذه الخدمة</a
-              >
+
+            <!-- 3. أزرق فاتح -->
+            <article class="custom-service-card bg-blue">
+              <div class="diamond-icon-wrapper">
+                <i class="fa-solid fa-broom"></i>
+              </div>
+              <div class="card-content">
+                <h3>النظافة التأهيلية</h3>
+                <p>
+                  فريق مدرب يوفر لك تنظيف تأهيلي شامل، بسرعة وجودة ومرونة تناسب
+                  احتياجات منزلك أو مكتبك الجديد.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://wa.me/966562752902"
+                    class="btn-whatsapp"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-whatsapp"></i> اطلب الان
+                  </a>
+                  <a
+                    href="pages/booking.html?service=النظافة%20التأهيلية"
+                    class="btn-details"
+                  >
+                    تفاصيل الخدمة <i class="fa-solid fa-arrow-left"></i>
+                  </a>
+                </div>
+              </div>
             </article>
-            <article
-              class="card service-card reveal"
-              style="background-color: #ff910079"
-            >
-              <span class="icon-tile"
-                ><i class="fa-solid fa-snowflake" aria-hidden="true"></i
-              ></span>
-              <h3>تنظيف وصيانة المكيفات</h3>
-              <p>
-                تنظيف وغسيل للمكيفات المنزلية مع مراجعة نوع الجهاز وعدد الوحدات،
-                لتوضيح نطاق الخدمة ومساعدتك في الحفاظ على أداء أفضل.
-              </p>
-              <a
-                class="btn btn-secondary"
-                href="pages/booking.html?service=تنظيف%20المكيفات"
-                >احجز هذه الخدمة</a
-              >
+
+            <!-- 4. وردي فاتح -->
+            <article class="custom-service-card bg-pink">
+              <div class="diamond-icon-wrapper">
+                <i class="fa-solid fa-snowflake"></i>
+              </div>
+              <div class="card-content">
+                <h3>تنظيف وصيانة المكيفات</h3>
+                <p>
+                  غسيل وتنظيف المكيفات المنزلية بأحدث الأجهزة للحفاظ على كفاءتها
+                  وتبريدها بشكل ممتاز.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://wa.me/966562752902"
+                    class="btn-whatsapp"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-whatsapp"></i> اطلب الان
+                  </a>
+                  <a
+                    href="pages/booking.html?service=تنظيف%20المكيفات"
+                    class="btn-details"
+                  >
+                    تفاصيل الخدمة <i class="fa-solid fa-arrow-left"></i>
+                  </a>
+                </div>
+              </div>
             </article>
-            <article
-              class="card service-card reveal"
-              style="background-color: #ff910079"
-            >
-              <span class="icon-tile"
-                ><i class="fa-solid fa-couch" aria-hidden="true"></i
-              ></span>
-              <h3>غسيل الكنب والسجاد</h3>
-              <p>
-                تنظيف للمفروشات التي تستخدمها كل يوم، مع مراعاة نوع القماش
-                وحالته وعدد القطع للحصول على عناية مناسبة لبيتك.
-              </p>
-              <a
-                class="btn btn-secondary"
-                href="pages/booking.html?service=غسيل%20الكنب%20والسجاد"
-                >احجز هذه الخدمة</a
-              >
+
+            <!-- 5. أصفر فاتح -->
+            <article class="custom-service-card bg-yellow">
+              <div class="diamond-icon-wrapper">
+                <i class="fa-solid fa-bug-slash"></i>
+              </div>
+              <div class="card-content">
+                <h3>مكافحة الحشرات</h3>
+                <p>
+                  رش مبيدات آمنة وفعالة للقضاء على جميع أنواع الحشرات مع ضمان
+                  عدم رجوعها مرة أخرى.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://wa.me/966562752902"
+                    class="btn-whatsapp"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-whatsapp"></i> اطلب الان
+                  </a>
+                  <a
+                    href="pages/booking.html?service=مكافحة%20الحشرات"
+                    class="btn-details"
+                  >
+                    تفاصيل الخدمة <i class="fa-solid fa-arrow-left"></i>
+                  </a>
+                </div>
+              </div>
             </article>
-            <article
-              class="card service-card reveal"
-              style="background-color: #ff910079"
-            >
-              <span class="icon-tile"
-                ><i class="fa-solid fa-wrench" aria-hidden="true"></i
-              ></span>
-              <h3>الصيانة المنزلية</h3>
-              <p>
-                مساندة في أعمال السباكة والكهرباء والصيانة المنزلية، مع فهم
-                العطل وموقعه قبل تنسيق نطاق العمل والموعد المناسب.
-              </p>
-              <a
-                class="btn btn-secondary"
-                href="pages/booking.html?service=الصيانة%20المنزلية"
-                >احجز هذه الخدمة</a
-              >
+
+            <!-- 6. رمادي فاتح -->
+            <article class="custom-service-card bg-gray">
+              <div class="diamond-icon-wrapper">
+                <i class="fa-solid fa-wrench"></i>
+              </div>
+              <div class="card-content">
+                <h3>الصيانة المنزلية العامة</h3>
+                <p>
+                  خدمات سباكة وكهرباء وصيانة عامة على أيدي فنيين متخصصين لضمان
+                  سلامة وراحة منزلك.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://wa.me/966562752902"
+                    class="btn-whatsapp"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-whatsapp"></i> اطلب الان
+                  </a>
+                  <a
+                    href="pages/booking.html?service=الصيانة%20المنزلية"
+                    class="btn-details"
+                  >
+                    تفاصيل الخدمة <i class="fa-solid fa-arrow-left"></i>
+                  </a>
+                </div>
+              </div>
             </article>
           </div>
           <div class="home-section-link">
@@ -543,6 +596,124 @@
           </div>
         </div>
       </section>
+      <section
+        class="section home-coverage-section"
+        aria-labelledby="home-coverage-title"
+      >
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">نصل إليك في القصيم</span>
+            <h2 id="home-coverage-title">نطاق التغطية</h2>
+            <p>
+              نخدم مدن ومحافظات منطقة القصيم. اختر مدينتك وتواصل معنا لتنسيق
+              الخدمة.
+            </p>
+          </div>
+          <div class="coverage-grid coverage-grid--compact">
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>بريدة</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>عنيزة</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>البكيرية</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>البدائع</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>المذنب</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>رياض الخبراء</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>عيون الجواء</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>الشماسية</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>البصر</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>الخبراء</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>القرين</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>الدليمية</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>البتراء</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>عقلة الصقور</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>قصر ابن عقيل</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>النبهانية</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>الفوارة</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>ضليع رشيد</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>الخشيبي</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>ضرية</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>الهمجة</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>الشبيكية</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>دخنة</span>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ><span>نفي</span>
+            </div>
+          </div>
+          <div class="home-section-link">
+            <a class="btn btn-secondary" href="pages/coverage.html"
+              >عرض نطاق التغطية</a
+            >
+          </div>
+        </div>
+      </section>
     </main>
     <dialog class="lightbox" data-lightbox aria-label="عارض الوسائط">
       <div class="lightbox-inner">
@@ -585,7 +756,7 @@
                 data-logo-dark="assets/logo-light.png"
                 alt="شعار سما الخليج المتقدمة"
             /></a>
-            <p style="margin-top: 17px">
+            <p class="footer-note">
               خدمات النظافة والصيانة المنزلية في منطقة القصيم.
             </p>
           </div>
