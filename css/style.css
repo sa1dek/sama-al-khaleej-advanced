@@ -2,15 +2,15 @@
 
 :root {
   color-scheme: light;
-  --ink: #343331;
-  --muted: #706e69;
-  --paper: #f6f4f0;
-  --surface: #fffefa;
-  --soft: #e9e5dd;
+  --ink: #000000;
+  --muted: #171717;
+  --paper: #f5f5f4;
+  --surface: #fdfdfc;
+  --soft: #f5f5f4;
   --line: rgba(62, 57, 49, 0.14);
   --accent: #a77d52;
   --accent-strong: #84603e;
-  --accent-soft: #f1e9df;
+  --accent-soft: #eeeeec;
   --sunny: #bc914d;
   --button-text: #ffffff;
   --button-hover-text: #ffffff;
@@ -18,7 +18,7 @@
   --call-text: #f6f4f0;
   --cta-bg: #37332f;
   --cta-text: #f6f4f0;
-  --cta-muted: rgba(246, 244, 240, 0.78);
+  --cta-muted: #ffffff;
   --sand: #e4ded4;
   --shadow: 0 16px 38px rgba(53, 47, 39, 0.08);
   --radius: 22px;
@@ -26,22 +26,22 @@
   --button-radius: 12px;
   --max: 1180px;
   --font: "Tajawal", Arial, sans-serif;
-  --header-bg: rgba(246, 244, 240, 0.95);
-  --service-beige: #f8f4ec;
+  --header-bg: rgba(245, 245, 244, 0.96);
+  --service-beige: #f5f5f4;
   --service-green: #f3f6ee;
   --service-blue: #eaf4f8;
   --service-pink: #fcf1f1;
-  --service-yellow: #fef8ea;
+  --service-yellow: #f8f8f6;
   --service-gray: #f4f4f6;
-  --service-ink: #2c2c2c;
-  --service-muted: #62615e;
+  --service-ink: #000000;
+  --service-muted: #171717;
   --service-icon-bg: #fffefa;
-  --hero-overlay: rgba(246, 244, 240, 0.78);
+  --hero-overlay: rgba(245, 245, 244, 0.8);
 }
 [data-theme="dark"] {
   color-scheme: dark;
-  --ink: #f0eee9;
-  --muted: #bbb7af;
+  --ink: #ffffff;
+  --muted: #f0eee9;
   --paper: #242321;
   --surface: #2d2b28;
   --soft: #37342f;
@@ -56,7 +56,7 @@
   --call-text: #242321;
   --cta-bg: #191817;
   --cta-text: #f0eee9;
-  --cta-muted: rgba(240, 238, 233, 0.76);
+  --cta-muted: #f0eee9;
   --sand: #3b3833;
   --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
   --header-bg: rgba(36, 35, 33, 0.96);
@@ -66,8 +66,8 @@
   --service-pink: #3a3030;
   --service-yellow: #3a3529;
   --service-gray: #333230;
-  --service-ink: #f0eee9;
-  --service-muted: #c6c1b8;
+  --service-ink: #ffffff;
+  --service-muted: #f0eee9;
   --service-icon-bg: #292724;
   --hero-overlay: rgba(36, 35, 33, 0.82);
 }
@@ -107,6 +107,13 @@ video {
 a {
   color: inherit;
   text-decoration: none;
+}
+a:not(.btn):not(.btn-whatsapp):not(.btn-details) {
+  color: var(--ink);
+}
+b,
+strong {
+  color: var(--ink);
 }
 button {
   color: inherit;
@@ -257,7 +264,7 @@ body {
 }
 .btn-light {
   background: #fff;
-  color: #343331;
+  color: #000000;
 }
 .icon-btn {
   width: 46px;
@@ -517,7 +524,7 @@ body {
   margin-top: 25px;
 }
 .btn-light {
-  color: #343331;
+  color: #000000;
 }
 .gallery-filter {
   display: flex;
@@ -1152,7 +1159,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .btn-light {
   background: #fff;
-  color: #343331;
+  color: #000000;
 }
 
 .icon-btn {
@@ -1330,10 +1337,16 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .card-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
   margin-top: auto;
+}
+
+.custom-service-card .card-actions > a {
+  flex: 1 1 125px;
+  justify-content: center;
 }
 
 .btn-whatsapp {
@@ -1908,7 +1921,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 0.91rem;
 }
 .nav-links a:not(.btn):hover,
-.nav-links a[aria-current="page"] {
+nav.nav-links a[aria-current="page"]:not(.btn) {
   color: var(--accent-strong);
 }
 .nav-actions {
@@ -2656,6 +2669,22 @@ dialog.lightbox[open] {
   padding-top: 35px;
 }
 
+.booking-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+}
+
+.booking-layout > .card {
+  width: 100%;
+}
+
+.booking-info {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+
 .split--start {
   align-items: start;
 }
@@ -2705,12 +2734,12 @@ dialog.lightbox[open] {
 }
 
 .custom-service-card .btn-whatsapp {
-  background: var(--accent-strong);
-  color: var(--button-text);
+  background: #25d366;
+  color: #ffffff;
 }
 
 .custom-service-card .btn-whatsapp:hover {
-  background: var(--accent);
+  background: #1eaa52;
 }
 
 .service-grid > .card {
@@ -2764,6 +2793,22 @@ dialog.lightbox[open] {
 
 .service-grid > .card.service-card .btn {
   align-self: flex-start;
+}
+
+.service-grid > .card.service-card .card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.service-grid > .card.service-card .card-actions > a {
+  flex: 1 1 120px;
+  justify-content: center;
+  min-width: 0;
+  white-space: nowrap;
 }
 
 .service-grid > .card h2,
@@ -2834,4 +2879,12 @@ dialog.lightbox[open] {
   .service-grid > .card.service-card {
     padding: 45px 18px 22px;
   }
+}
+
+nav.nav-links a[aria-current="page"]:not(.btn) {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--accent-strong);
+  color: var(--button-text);
+  font-weight: 800;
 }

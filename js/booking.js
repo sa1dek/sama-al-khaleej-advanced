@@ -247,6 +247,12 @@
       ["عدد مقاعد الكنب", form.elements.sofaSeats.value],
       ["عدد قطع السجاد أو الموكيت", form.elements.carpetCount.value],
       ["المساحة التقريبية (م²)", form.elements.areaSize.value],
+      ["عدد الأحواش", form.elements.courtyardCount.value],
+      ["عدد الأسطح", form.elements.roofCount.value],
+      ["عدد المجالس", form.elements.majlisCount.value],
+      ["عدد المطابخ", form.elements.kitchenCount.value],
+      ["عدد الصالات", form.elements.livingRoomCount.value],
+      ["عدد الممرات", form.elements.corridorCount.value],
     ];
     rows.push(...optionalDetails.filter(([, value]) => value.trim()));
     const notes = form.elements.notes.value.trim();

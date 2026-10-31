@@ -121,7 +121,7 @@
         </div>
       </section>
       <section class="section section--booking">
-        <div class="container split split--start">
+        <div class="container booking-layout">
           <div class="card">
             <form id="booking-form" novalidate>
               <div class="form-grid">
@@ -382,6 +382,72 @@
                     placeholder="مثال: 180"
                   />
                 </div>
+                <div class="form-field">
+                  <label for="courtyard-count">عدد الأحواش</label>
+                  <input
+                    id="courtyard-count"
+                    name="courtyardCount"
+                    type="number"
+                    min="0"
+                    inputmode="numeric"
+                    placeholder="مثال: 1"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="roof-count">عدد الأسطح</label>
+                  <input
+                    id="roof-count"
+                    name="roofCount"
+                    type="number"
+                    min="0"
+                    inputmode="numeric"
+                    placeholder="مثال: 1"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="majlis-count">عدد المجالس</label>
+                  <input
+                    id="majlis-count"
+                    name="majlisCount"
+                    type="number"
+                    min="0"
+                    inputmode="numeric"
+                    placeholder="مثال: 2"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="kitchen-count">عدد المطابخ</label>
+                  <input
+                    id="kitchen-count"
+                    name="kitchenCount"
+                    type="number"
+                    min="0"
+                    inputmode="numeric"
+                    placeholder="مثال: 1"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="living-room-count">عدد الصالات</label>
+                  <input
+                    id="living-room-count"
+                    name="livingRoomCount"
+                    type="number"
+                    min="0"
+                    inputmode="numeric"
+                    placeholder="مثال: 2"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="corridor-count">عدد الممرات</label>
+                  <input
+                    id="corridor-count"
+                    name="corridorCount"
+                    type="number"
+                    min="0"
+                    inputmode="numeric"
+                    placeholder="مثال: 3"
+                  />
+                </div>
                 <div class="form-field full">
                   <label for="notes">تفاصيل إضافية</label
                   ><textarea
@@ -403,7 +469,7 @@
               class="booking-status-message"
             ></p>
           </div>
-          <aside>
+          <aside class="booking-info" aria-label="معلومات بعد إرسال الطلب">
             <div class="card">
               <span class="icon-tile"
                 ><i class="fa-solid fa-circle-info" aria-hidden="true"></i
