@@ -1697,7 +1697,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .home-about-copy .lead {
   margin: 0 auto;
   max-width: 72ch;
+  color: var(--ink);
   font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-weight: 700;
   line-height: 1.9;
 }
 .home-about-copy .lead + .lead {
