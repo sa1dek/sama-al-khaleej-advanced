@@ -2888,3 +2888,191 @@ nav.nav-links a[aria-current="page"]:not(.btn) {
   color: var(--button-text);
   font-weight: 800;
 }
+
+/* A dedicated editorial layout for the About page. */
+.about-story-section {
+  padding-top: 48px;
+}
+
+.about-story-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(250px, 0.7fr);
+  gap: clamp(18px, 3vw, 34px);
+  align-items: stretch;
+}
+
+.about-story-copy {
+  padding: clamp(28px, 5vw, 56px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.about-story-copy h2 {
+  max-width: 15ch;
+  margin: 14px 0 24px;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.about-story-copy p {
+  max-width: 66ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.06rem;
+  line-height: 2;
+}
+
+.about-story-copy p + p {
+  margin-top: 15px;
+}
+
+.about-promise {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  padding: clamp(26px, 4vw, 42px);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--cta-bg);
+  color: var(--cta-text);
+}
+
+.about-promise-label {
+  color: #f0d5a3;
+  font-weight: 800;
+}
+
+.about-promise-title {
+  max-width: 14ch;
+  margin: 30px 0;
+  color: var(--cta-text);
+  font-size: clamp(1.55rem, 2.7vw, 2.15rem);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.about-promise-list {
+  display: grid;
+}
+
+.about-promise-list span {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+  color: var(--cta-muted);
+  font-weight: 700;
+}
+
+.about-promise-list i {
+  width: 22px;
+  color: #f0d5a3;
+  text-align: center;
+}
+
+.about-method-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: clamp(28px, 6vw, 72px);
+  align-items: center;
+}
+
+.about-method-copy h2 {
+  max-width: 17ch;
+  margin: 14px 0 24px;
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+}
+
+.about-method-copy p {
+  max-width: 66ch;
+  line-height: 1.95;
+}
+
+.about-presence-panel {
+  padding: clamp(26px, 4vw, 42px);
+  border: 1px solid var(--line);
+  border-inline-start: 4px solid var(--accent-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.about-presence-panel .icon-tile {
+  margin-bottom: 28px;
+}
+
+.about-presence-panel h3 {
+  font-size: 1.5rem;
+}
+
+.about-presence-panel p {
+  margin-bottom: 22px;
+  line-height: 1.9;
+}
+
+.about-principles {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.about-principle {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.about-principle .icon-tile {
+  margin-bottom: 24px;
+}
+
+.about-principle h3 {
+  margin-bottom: 9px;
+}
+
+.about-principle p {
+  margin-bottom: 0;
+  line-height: 1.85;
+}
+
+@media (max-width: 760px) {
+  .about-story-layout,
+  .about-method-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-promise {
+    min-height: auto;
+  }
+
+  .about-promise-title {
+    margin: 20px 0;
+  }
+
+  .about-principles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .about-story-section {
+    padding-top: 32px;
+  }
+
+  .about-story-copy,
+  .about-promise,
+  .about-presence-panel,
+  .about-principle {
+    padding: 23px;
+  }
+
+  .about-principles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
